@@ -22,6 +22,10 @@ namespace DiAnterExpressDummy.Profiles
                 opt => opt.MapFrom(src => src.Status.ToString()));
 
             CreateMap<ShipmentType, DtoShipmentTypeOutput>();
+
+            CreateMap<Shipment, DtoStatus>()
+            .ForMember(dst => dst.Status,
+                opt => opt.MapFrom(src => src.Status.ToString()));
         }
     }
 }

@@ -227,5 +227,15 @@ namespace DiAnterExpressDummy.Controllers
                 );
             }
         }
+
+        [HttpGet("{id}/Status")]
+        public async Task<ActionResult<DtoStatus>> GetShipmentStatus(int id)
+        {
+            var result = await _shipment.GetById(id);
+            if (result == null)
+                return NotFound();
+
+            return Ok(_mapper.Map<DtoStatus>(result));
+        }
     }
 }
